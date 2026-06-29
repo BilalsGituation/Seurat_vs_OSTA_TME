@@ -8,7 +8,7 @@ Author: Bilal Asser
 This workflow provides a practical intro to Tumour Microenvironment (TME) analysis using Spatial Transcriptomics data (10X Visium), for learners who have some experience with single cell and spatial transcriptomics analysis in Seurat through the vignettes.
 
 ## Quick note on breast cancer TME:
-DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still confined to the milk ducts
+DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still confined to the milk ducts.
 
 ## Quick concept tutorial for later:
 - Normalised Mutual Information (NMI) is a measure of the similarity of two images.
@@ -17,10 +17,10 @@ DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still
     - If two images lack shared structural patterns, NiftyReg cannot artificially increase their similarity.
 
 ## Aims: 
-1) Spatial transcriptomics workflow interoperation by translating the OSTA chapter 12 workflow to the Seurat framework
-2) Visually compare differences in spatial maps produced by our deconvolution using `Seurat::FindTransferAnchors()` and OSTA's deconvolution using RCTD
-3) Use NMI to quantify the change in spatial alignment between spatial maps from `Seurat::FindTransferAnchors()` and RCTD after affine registration with the NiftyReg algorithm
-4) Calculate match rates between Seurat predictions and ground truth supplied by 10X
+1) Spatial transcriptomics workflow interoperation by translating the OSTA chapter 12 workflow to the Seurat framework.
+2) Visually compare differences in spatial maps produced by our deconvolution using `Seurat::FindTransferAnchors()` and OSTA's deconvolution using RCTD.
+3) Use NMI to quantify the change in spatial alignment between spatial maps from `Seurat::FindTransferAnchors()` and RCTD after affine registration with the NiftyReg algorithm.
+4) Calculate match rates between Seurat predictions and ground truth supplied by 10X.
 
 (Bonus) Visually compare Seurat's UMAP clustering vs the ground truth cell type IDs provided by 10X genomics.
 
@@ -70,12 +70,12 @@ Stromal: 99.3% correct (not breast cancer, nor hard to identify)
 The moderate match rates between deconvolution predictions and ground truth annotations, combined with the high similarity between Seurat and RCTD predictions, suggest that the spatial transcriptomics deconvolution of the breast TME is fundamentally challenging due to the intermingled nature of cell populations. Both methods produced similar spatial patterns of predicted cell types, indicating that the observed limitations reflect biological complexity rather than methodological inadequacy.
 
 ### TME observations:
-- DCIS1 and DCIS2 spots do not overlap - distinct populations
-- myoepithelial cells line the ducts and their spots overlap with both DCIS subtypes - DUCTAL carcinoma in situ (more in Seurat than RCTD image)
-- DCIS2 and tumour regions do some bordering of each other
-- Stromal cells in the breast cancer microenvironment are non-cancerous cells that provide structural and biochemical support to the tumour, affecting its progression, metastasis, and therapy resistance. Stromal cells are concentrated around the tumour which makes sense because of the well-characterised desmoplastic response
-- Endothelial spots are scattered througout but concentrated around tumour because of angiogenesis (clearer with Seurat?)
-- Macrophages are recruited to stromal-DCIS interfaces - immune infiltration. Similar to Tumour-associated macrophages (TAMs) but at site of preinvasive population. Some TAMs seen too (more in RCTD)
+- DCIS1 and DCIS2 spots do not overlap - distinct populations.
+- myoepithelial cells line the ducts and their spots overlap with both DCIS subtypes - DUCTAL carcinoma in situ (more in Seurat than RCTD image).
+- DCIS2 and tumour regions do some bordering of each other.
+- Stromal cells in the breast cancer microenvironment are non-cancerous cells that provide structural and biochemical support to the tumour, affecting its progression, metastasis, and therapy resistance. Stromal cells are concentrated around the tumour which makes sense because of the well-characterised desmoplastic response.
+- Endothelial spots are scattered througout but concentrated around tumour because of angiogenesis. (clearer with Seurat?)
+- Macrophages are recruited to stromal-DCIS interfaces - immune infiltration. Similar to Tumour-associated macrophages (TAMs) but at site of preinvasive population. Some TAMs seen too. (more in RCTD)
 
 ### Final evaluation:
 Biologically meaningful spatial patterns that make oncological sense are still captured by the prediction algorithms.
