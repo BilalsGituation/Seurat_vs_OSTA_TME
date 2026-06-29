@@ -1,0 +1,45 @@
+*.html
+*.Rproj
+.Rhistory
+.Rdata
+.Ruserdata
+.RDS
+.Renviron
+.Rapp.history
+.Rprofile
+*.Rcheck/
+*.RData
+*.Rds
+*.rds
+.Rproj*
+
+# Data files (large)
+*.h5
+*.hdf5
+*.loom
+*.mtx
+*.tsv
+*.csv
+*.tab
+*.fastq
+*.bam
+*.bai
+*.vcf
+
+# OS specific
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.log
+
+# Ignore all PNGs except specific ones
+*.png
+!data/seurat_FindTransferAnchors_img.png
+!data/Screenshot_2026-06-10_18-47-50.png
