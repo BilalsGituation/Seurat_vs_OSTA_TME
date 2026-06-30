@@ -2,42 +2,23 @@
 [1] "Janesick, A., Shelansky, R., Gottscho, A.D. et al. High resolution mapping of the tumor microenvironment using integrated single-cell, spatial and in situ analysis. Nat Commun 14, 8353 (2023). https://doi.org/10.1038/s41467-023-43458-x"
 To cite package ‘OSTA.data’ in publications use:
 
-  Don[1] 18085  4992
-[1] 18085  4962
-Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+  Dong Y, Crowell H, Carey V (2026). _OSTA.data: OSTA book data_. doi:10.18129/B9.bioc.OSTA.data <https://doi.org/10.18129/B9.bioc.OSTA.data>. R package version 1.4.0, <https://bioconductor.org/packages/OSTA.data>.
 
-Number of nodes: 4962
-Number of edges: 161751
+A BibTeX entry for LaTeX users is
 
-Running Louvain algorithm...
-Maximum modularity in 10 random starts: 0.8589
-Number of communities: 18
-Elapsed time: 0 seconds
-[1] FALSE
-Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+  @Manual{,
+    title = {OSTA.data: OSTA book data},
+    author = {Yixing E. Dong and Helena L. Crowell and Vince Carey},
+    year = {2026},
+    note = {R package version 1.4.0},
+    url = {https://bioconductor.org/packages/OSTA.data},
+    doi = {10.18129/B9.bioc.OSTA.data},
+  }
+[1] ""
+To cite package ‘tidyverse’ in publications use:
 
-Number of nodes: 30365
-Number of edges: 1138954
-
-Running Louvain algorithm...
-Maximum modularity in 10 random starts: 0.9155
-Number of communities: 25
-Elapsed time: 5 seconds
-
-Overall Accuracy: 72.1%
-Total spots: 1708
-         Ground_Truth
-Predicted DCIS1 DCIS2 tumor stromal
-  B           0     2     0       0
-  DCIS1     189     0     0       0
-  DCIS2       0   126     0       0
-  endo        1     1    37       1
-  macro       0     5     8       3
-  myoepi     83    55     0       0
-  perivas     0     0     3       0
-  stromal    71    21   186     551
-  tumor       0     0   365       0
-doi.org/10.21105/joss.01686>.
+  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D,
+  Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
 
 A BibTeX entry for LaTeX users is
 
