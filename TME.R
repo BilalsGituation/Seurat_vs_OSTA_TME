@@ -283,26 +283,39 @@ writePNG(nmi_registered$image, "data/aligned_seurat_to_osta.png")
 
 
 # References ####
-
-# HL Crowell*°, Y Dong*, I Billato, P Cai, M Emons, S Gunz, B Guo, M Li, A Mahmoud, A Manukyan, H Pagès, P Panwar, S Rao, CJ Sargeant, L Shepherd Kern, M Ramos, J Sun, M Totty, VJ Carey, Y Chen, L Collado-Torres, S Ghazanfar, KD Hansen, K Martinowich, KR Maynard, E Patrick, D Righelli, D Risso, S Tiberi, L Waldron, R Gottardo†°, MD Robinson†°, SC Hicks†°, LM Weber†°. Orchestrating spatial transcriptomics analysis with Bioconductor. bioRxiv (2025). DOI: 10.1101/2025.11.20.688607
-
-# Janesick, A., Shelansky, R., Gottscho, A.D. et al. High resolution mapping of the tumor microenvironment using integrated single-cell, spatial and in situ analysis. Nat Commun 14, 8353 (2023). https://doi.org/10.1038/s41467-023-43458-x
-
+sink(paste0("references.txt"))
+print("HL Crowell*°, Y Dong*, I Billato, P Cai, M Emons, S Gunz, B Guo, M Li, A Mahmoud, A Manukyan, H Pagès, P Panwar, S Rao, CJ Sargeant, L Shepherd Kern, M Ramos, J Sun, M Totty, VJ Carey, Y Chen, L Collado-Torres, S Ghazanfar, KD Hansen, K Martinowich, KR Maynard, E Patrick, D Righelli, D Risso, S Tiberi, L Waldron, R Gottardo†°, MD Robinson†°, SC Hicks†°, LM Weber†°. Orchestrating spatial transcriptomics analysis with Bioconductor. bioRxiv (2025). DOI: 10.1101/2025.11.20.688607")
+print("Janesick, A., Shelansky, R., Gottscho, A.D. et al. High resolution mapping of the tumor microenvironment using integrated single-cell, spatial and in situ analysis. Nat Commun 14, 8353 (2023). https://doi.org/10.1038/s41467-023-43458-x")
 citation("OSTA.data")
+print("")
 citation("tidyverse") 
+print("")
 citation("Seurat")
+print("")
 citation("patchwork")
+print("")
 citation("visiumStitched")
+print("")
 citation("CARDspa")
+print("")
 citation("pheatmap")
+print("")
 citation("SpatialExperiment")
+print("")
 citation("VisiumIO")
+print("")
 citation("hdf5r")
+print("")
 citation("devtools")
+print("")
 citation("RNiftyReg")
+print("")
 citation("png")
+print("")
 citation("pals")
+print("")
 citation("spacexr")
+sink()
 
 # Session Info ####
 

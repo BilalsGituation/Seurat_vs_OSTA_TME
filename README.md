@@ -54,6 +54,8 @@ The breast cancer cells were difficult to identify, even using reference-based d
 ### What evidence went into this?
 #### 1) NMI Similarity (Seurat vs RCTD deconvolution algorithms)
 
+(Check the `data` directory to see these images in PNG format)
+
 High NMI before, and increase in NMI after applying affine registration to images shows that both methods make similar spatial patterns of cell type predictions.
  
 #### 2) Low Match Rates in tumour or preinvasive DCIS cells (Predictions vs Ground Truth)
@@ -88,4 +90,4 @@ Please create an issue if this workflow could be improved or made more robust.
 
 ## References:
 
-Written at end of `TME.R` script, most called using `citation()`
+Citations are provided in `references.txt` and dependencies in `session_info_[timestamp].txt`.
