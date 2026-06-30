@@ -27,7 +27,7 @@ DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still
 ## Questions: 
 - Do the spatial maps from this TME dataset visually differ when produced with Seurat’s integration-based deconvolution instead of RCTD’s probabilistic deconvolution? 
 - What is the increase in NMI achieved by optimally aligning the Seurat map to the RCTD map using affine transformations? 
-- How close are Seurat's cell type predictions to the annotation provided by 10X?
+- How close are Seurat's cell type predictions to the annotation provided by 10X? (where the predictions are comparable).
 
 ## Links to project inspiration:
 
@@ -52,10 +52,9 @@ In a sentence:
 The breast cancer cells were difficult to identify, even using reference-based deconvolution.
 
 ### What evidence went into this?
-#### 1) NMI Similarity (Seurat vs RCTD)
+#### 1) NMI Similarity (Seurat vs RCTD deconvolution algorithms)
 
-- Both methods are making similar cell type assignments
-- Neither method is producing radically different spatial patterns
+High NMI before, and increase in NMI after applying affine registration to images shows that both methods make similar spatial patterns of cell type predictions.
  
 #### 2) Low Match Rates in tumour or preinvasive DCIS cells (Predictions vs Ground Truth)
 DCIS1: 54.9% correct
@@ -67,20 +66,23 @@ Tumor: 60.9% correct
 Stromal: 99.3% correct (not breast cancer, nor hard to identify)
 
 ### In a paragraph:
-The moderate match rates between deconvolution predictions and ground truth annotations, combined with the high similarity between Seurat and RCTD predictions, suggest that the spatial transcriptomics deconvolution of the breast TME is fundamentally challenging due to the intermingled nature of cell populations. Both methods produced similar spatial patterns of predicted cell types, indicating that the observed limitations reflect biological complexity rather than methodological inadequacy.
+The moderate match rates between deconvolution predictions and ground truth annotations, combined with the high similarity between Seurat and RCTD predictions, suggest that the spatial transcriptomics deconvolution of the breast TME is fundamentally challenging due to the intermingled nature of cell populations. 
+
+Both methods produced similar spatial patterns of predicted cell types and stromal cell spots were correctly identified over 99% of the time. This indicates that the observed limitations reflect biological complexity rather than methodological inadequacy.
 
 ### TME observations:
 - DCIS1 and DCIS2 spots do not overlap - distinct populations.
-- myoepithelial cells line the ducts and their spots overlap with both DCIS subtypes - DUCTAL carcinoma in situ (more in Seurat than RCTD image).
+- Myoepithelial cells line the ducts and their spots overlap with both DCIS subtypes - DUCTAL carcinoma in situ (more in Seurat than RCTD image).
 - DCIS2 and tumour regions do some bordering of each other.
 - Stromal cells in the breast cancer microenvironment are non-cancerous cells that provide structural and biochemical support to the tumour, affecting its progression, metastasis, and therapy resistance. Stromal cells are concentrated around the tumour which makes sense because of the well-characterised desmoplastic response.
 - Endothelial spots are scattered througout but concentrated around tumour because of angiogenesis. (clearer with Seurat?)
+- Seurat predicted a low level of perivascular cells overlapping with the tumour region, potentially also showing angiogenesis. (I can't see this in the OSTA predictions).
 - Macrophages are recruited to stromal-DCIS interfaces - immune infiltration. Similar to Tumour-associated macrophages (TAMs) but at site of preinvasive population. Some TAMs seen too. (more in RCTD)
 
 ### Final evaluation:
-Biologically meaningful spatial patterns that make oncological sense are still captured by the prediction algorithms.
+Despite moderate cancer cell spot identification rates in the confusion matrix, biologically meaningful spatial patterns that make oncological sense are still captured by the Seurat prediction algorithm. Seurat's deconvolution algorithm produced highly but not completely similar predictions to RCTD.
 
-And as always, remember the limitations.
+As always, remember the limitations.
 
 Please create an issue if this workflow could be improved or made more robust.
 
