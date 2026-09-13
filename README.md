@@ -17,19 +17,6 @@ This workflow provides a practical intro to Tumour Microenvironment (TME) analys
 
 (Bonus) Visually compare Seurat's UMAP clustering vs the cell type IDs provided by 10X genomics.
 
-## Quick tutorial notes
-
-##### Breast cancer TME:
-
-- DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still confined to the milk ducts.
-- Stromal cells in the breast cancer microenvironment are non-cancerous cells that provide structural and biochemical support to the tumour, affecting its progression, metastasis, and therapy resistance.
-
-##### NMI:
-
-- Normalised Mutual Information (NMI) is a measure of the similarity of two images.
-- NiftyReg is a visual pattern detection algorithm which finds and registers statistical transformations on a source image to make it more similar to a query image (increasing their NMI score). (statistical transformation examples: rotation, scale, shear, translation)
-  - If two images lack shared structural patterns, NiftyReg cannot artificially increase their similarity.
-
 ## Results
 
 - **Question answered:** Do the spatial maps from this TME dataset visually differ when produced with Seurat’s integration-based deconvolution instead of RCTD’s probabilistic deconvolution?
@@ -56,6 +43,19 @@ This workflow provides a practical intro to Tumour Microenvironment (TME) analys
 <em>Spot annotations provided by 10X Genomics (for guidance)</em>
 </div>   
 
+
+### Quick tutorial notes
+
+##### Breast cancer TME:
+
+- DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still confined to the milk ducts.
+- Stromal cells in the breast cancer microenvironment are non-cancerous cells that provide structural and biochemical support to the tumour, affecting its progression, metastasis, and therapy resistance.
+
+##### NMI:
+
+- Normalised Mutual Information (NMI) is a measure of the similarity of two images.
+- NiftyReg is a visual pattern detection algorithm which finds and registers statistical transformations on a source image to make it more similar to a query image (increasing their NMI score). (statistical transformation examples: rotation, scale, shear, translation)
+  - If two images lack shared structural patterns, NiftyReg cannot artificially increase their similarity.
 
 ### NMI Similarity (Seurat vs RCTD deconvolution algorithms)
 
