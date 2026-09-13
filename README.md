@@ -1,12 +1,10 @@
-Date released: 2026-06-29
+**Date released:** 2026-06-29
 
-Author: Bilal Asser
+**Author:** Bilal Asser
 
 (Hardware needs minimum 16GB memory to run this)
 
-## Purpose of this work:
-
-This workflow provides a practical intro to Tumour Microenvironment (TME) analysis using Spatial Transcriptomics data (10X Visium), for learners who have some experience with single cell and spatial transcriptomics analysis in Seurat through the vignettes.
+**Purpose of this work:** This workflow provides a practical intro to Tumour Microenvironment (TME) analysis using Spatial Transcriptomics data (10X Visium), for learners who have some experience with single cell and spatial transcriptomics analysis in Seurat through the vignettes.
 
 ## Aims:
 
