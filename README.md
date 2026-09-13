@@ -11,16 +11,16 @@ This workflow provides a practical intro to Tumour Microenvironment (TME) analys
 ## Aims:
 
 1)  Spatial transcriptomics workflow interoperation by translating the OSTA chapter 12 workflow to the Seurat framework.
-2)  Visually compare differences in spatial maps produced by our deconvolution using `Seurat::FindTransferAnchors()` and OSTA's deconvolution using RCTD.
+2)  Visually compare differences in spatial maps produced by my deconvolution using `Seurat::FindTransferAnchors()` and OSTA's deconvolution using RCTD.
 3)  Use NMI to quantify the change in spatial alignment between spatial maps from `Seurat::FindTransferAnchors()` and RCTD after affine registration with the NiftyReg algorithm.
-4)  Calculate match rates between Seurat predictions and ground truth supplied by 10X.
+4)  Calculate match rates between Seurat predictions and spot annotations ("ground truth") supplied by 10X.
 
-(Bonus) Visually compare Seurat's UMAP clustering vs the ground truth cell type IDs provided by 10X genomics.
+(Bonus) Visually compare Seurat's UMAP clustering vs the cell type IDs provided by 10X genomics.
 
 ## Questions:
 
 - Do the spatial maps from this TME dataset visually differ when produced with Seurat’s integration-based deconvolution instead of RCTD’s probabilistic deconvolution?
-- What is the increase in NMI achieved by optimally aligning the Seurat map to the RCTD map using affine transformations?
+- Is there a change in NMI achieved by optimally aligning the Seurat map to the RCTD map using affine transformations?
 - How close are Seurat's cell type predictions to the annotation provided by 10X? (where the predictions are comparable).
 
 ## Links to project inspiration:
@@ -35,12 +35,12 @@ To skip to the images (Note: Deconvolution result images are flipped vertically 
 
 ## Limitations:
 
-- This version only calculates a confusion matrix on the Seurat results.
 - The sample is one spatial transcriptomics slide/slice.
 - No analysis is made into why one prediction algorithm captures certain oncological info better than the other.
 - Did not find markers for clusters.
-- Match rates are only calculated for a subset of cell types (DCIS #1, DCIS #2, invasive, stromal) in the ground truth annotation, which matched the cell types in the deconvolution reference.
-- I do not have the methodology for "Ground Truth" cell type identification.
+- This version only calculates a confusion matrix against 10X annotations for the Seurat results.
+- Match rates are only calculated for a subset of cell types (DCIS #1, DCIS #2, invasive, stromal) in the 10X "ground truth" annotations, those which matched the cell types in the deconvolution reference.
+- I do not have the methodology for 10X cell type identification.
 
 ## Quick note on breast cancer TME:
 
@@ -54,13 +54,35 @@ DCIS is Ductal Carcinoma in situ. These cells are preinvasive cancer cells still
 
 ## Results
 
+<div align="center">
+<img src="data/seurat_FindTransferAnchors_img.png" width="900" alt="Seurat deconvolution results">
+<br>
+<em>My reverse-engineered results: Seurat cell type identification of the Janesick et al. breast tumour Visium sample</em>
+</div>
+
+<br><br>
+
+<div align="center">
+<img src="data/Screenshot_2026-06-10_18-47-50.png" width="900" alt="RCTD (OSTA) deconvolution results">
+<br>
+<em>Original results from OSTA: RCTD/Bioconductor cell type identification of the Janesick et al. breast tumour Visium sample (images needed flipping, no other manipulations done)</em>
+</div>
+
+<br><br>
+
+<div align="center">
+<img src="data/10X_anno.png" width="900" alt="10X annotations">
+<br>
+<em>Spot annotations provided by 10X Genomics (for guidance)</em>
+</div>   
+
 ### NMI Similarity (Seurat vs RCTD deconvolution algorithms)
 
-(Check the `data` directory to see these images in PNG format)
+(Test was done on first and second image in Results section)
 
 High NMI before, and increase in NMI after applying affine registration to images shows that both methods make similar spatial patterns of cell type predictions.
 
-### Moderate Match Rates in tumour or preinvasive DCIS cells (Predictions vs Ground Truth)
+### Moderate Match Rates in tumour or preinvasive DCIS cells<br>(Seurat Predictions vs 10X annotations)
 
 *(Match rates are only calculated for a subset of cell types (DCIS #1, DCIS #2, invasive, stromal) in the ground truth annotation, which matched the cell types in the deconvolution reference.)*
 
@@ -86,7 +108,7 @@ Stromal: 99.3% correct (not breast cancer, nor hard to identify)
 
 Despite moderate cancer cell spot identification rates in the confusion matrix, biologically meaningful spatial patterns that make oncological sense are still captured by the Seurat prediction algorithm. This project was not sufficient in scope to answer whether the limitation causing the confusion lied with the spot annotations from 10X, or with Seurat's deconvolution algorithm. Seurat's deconvolution algorithm produced highly but not completely similar predictions to RCTD.
 
-The moderate match rates between deconvolution predictions and ground truth annotations, combined with the high similarity between Seurat and RCTD predictions, suggest that either the capture of ground truth annotations or the spatial transcriptomics deconvolution of the breast TME is fundamentally challenging. This is presumably due to the intermingled nature of cell populations and cellular transformation process in cancer.
+The moderate match rates between deconvolution predictions and annotations used as "ground truth", combined with the high similarity between Seurat and RCTD predictions, suggest that either the capture of ground truth annotations or the spatial transcriptomics deconvolution of the breast TME is fundamentally challenging. This is presumably due to the intermingled nature of cell populations and the cellular transformation process in cancer.
 
 ## Notes
 

@@ -1,4 +1,5 @@
 [1] "HL Crowell*°, Y Dong*, I Billato, P Cai, M Emons, S Gunz, B Guo, M Li, A Mahmoud, A Manukyan, H Pagès, P Panwar, S Rao, CJ Sargeant, L Shepherd Kern, M Ramos, J Sun, M Totty, VJ Carey, Y Chen, L Collado-Torres, S Ghazanfar, KD Hansen, K Martinowich, KR Maynard, E Patrick, D Righelli, D Risso, S Tiberi, L Waldron, R Gottardo†°, MD Robinson†°, SC Hicks†°, LM Weber†°. Orchestrating spatial transcriptomics analysis with Bioconductor. bioRxiv (2025). DOI: 10.1101/2025.11.20.688607"
+[1] "(* co-first. † co-senior. ° correspondence.)"
 [1] "Janesick, A., Shelansky, R., Gottscho, A.D. et al. High resolution mapping of the tumor microenvironment using integrated single-cell, spatial and in situ analysis. Nat Commun 14, 8353 (2023). https://doi.org/10.1038/s41467-023-43458-x"
 To cite package ‘OSTA.data’ in publications use:
 
@@ -17,8 +18,8 @@ A BibTeX entry for LaTeX users is
 [1] ""
 To cite package ‘tidyverse’ in publications use:
 
-  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D,
-  Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
+  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C,
+  Woo K, Yutani H (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
 
 A BibTeX entry for LaTeX users is
 
@@ -67,8 +68,8 @@ To cite package ‘visiumStitched’ in publications use:
   Eagles NJ, Collado-Torres L (2026). _Enable downstream analysis of Visium capture areas stitched together with Fiji_. doi:10.18129/B9.bioc.visiumStitched <https://doi.org/10.18129/B9.bioc.visiumStitched>.
   https://github.com/LieberInstitute/visiumStitched/visiumStitched - R package version 1.4.0, <http://www.bioconductor.org/packages/visiumStitched>.
 
-  Eagles NJ, Bach S, Tippani M, Ravichandran P, Du Y, Miller RA, Hyde TM, Page SC, Martinowich K, Collado-Torres L (2024). “visiumStitched.” _BMC Genomics_. doi:10.1186/s12864-024-10991-y
-  <https://doi.org/10.1186/s12864-024-10991-y>. <doi.org/10.1186/s12864-024-10991-y>.
+  Eagles NJ, Bach S, Tippani M, Ravichandran P, Du Y, Miller RA, Hyde TM, Page SC, Martinowich K, Collado-Torres L (2024). “visiumStitched.” _BMC Genomics_. doi:10.1186/s12864-024-10991-y <https://doi.org/10.1186/s12864-024-10991-y>.
+  <doi.org/10.1186/s12864-024-10991-y>.
 
 To see these entries in BibTeX format, use 'print(<citation>, bibtex=TRUE)', 'toBibtex(.)', or set 'options(citation.bibtex.max=999)'.
 [1] ""
@@ -138,8 +139,7 @@ A BibTeX entry for LaTeX users is
 [1] ""
 To cite package ‘hdf5r’ in publications use:
 
-  Hoefling H, Annau M (2025). _hdf5r: Interface to the 'HDF5' Binary Data Format_. doi:10.32614/CRAN.package.hdf5r <https://doi.org/10.32614/CRAN.package.hdf5r>. R package version 1.3.12,
-  <https://CRAN.R-project.org/package=hdf5r>.
+  Hoefling H, Annau M (2025). _hdf5r: Interface to the 'HDF5' Binary Data Format_. doi:10.32614/CRAN.package.hdf5r <https://doi.org/10.32614/CRAN.package.hdf5r>. R package version 1.3.12, <https://CRAN.R-project.org/package=hdf5r>.
 
 A BibTeX entry for LaTeX users is
 
@@ -170,8 +170,8 @@ A BibTeX entry for LaTeX users is
 [1] ""
 To cite package ‘RNiftyReg’ in publications use:
 
-  Clayden J, Modat M, Presles B, Anthopoulos T, Daga P (2026). _RNiftyReg: Image Registration Using the 'NiftyReg' Library_. doi:10.32614/CRAN.package.RNiftyReg <https://doi.org/10.32614/CRAN.package.RNiftyReg>. R package
-  version 2.8.5, <https://CRAN.R-project.org/package=RNiftyReg>.
+  Clayden J, Modat M, Presles B, Anthopoulos T, Daga P (2026). _RNiftyReg: Image Registration Using the 'NiftyReg' Library_. doi:10.32614/CRAN.package.RNiftyReg <https://doi.org/10.32614/CRAN.package.RNiftyReg>. R package version
+  2.8.5, <https://CRAN.R-project.org/package=RNiftyReg>.
 
 A BibTeX entry for LaTeX users is
 
@@ -201,8 +201,7 @@ A BibTeX entry for LaTeX users is
 [1] ""
 To cite package ‘pals’ in publications use:
 
-  Wright K (2025). _pals: Color Palettes, Colormaps, and Tools to Evaluate Them_. doi:10.32614/CRAN.package.pals <https://doi.org/10.32614/CRAN.package.pals>. R package version 1.10,
-  <https://CRAN.R-project.org/package=pals>.
+  Wright K (2025). _pals: Color Palettes, Colormaps, and Tools to Evaluate Them_. doi:10.32614/CRAN.package.pals <https://doi.org/10.32614/CRAN.package.pals>. R package version 1.10, <https://CRAN.R-project.org/package=pals>.
 
 A BibTeX entry for LaTeX users is
 

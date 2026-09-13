@@ -43,3 +43,4 @@ tmp/
 *.png
 !data/seurat_FindTransferAnchors_img.png
 !data/Screenshot_2026-06-10_18-47-50.png
+!data/10X_anno.png

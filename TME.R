@@ -67,12 +67,14 @@ wrap_plots(plot1, plot2)
 
 # num unique genes per spot
 plot3 <- VlnPlot(visium_breast, features = "nFeature_Spatial", pt.size = 0.1) + NoLegend()
-wrap_plots(plot3, plot2)
+plot4 <- SpatialFeaturePlot(visium_breast, features = "nFeature_Spatial", pt.size.factor = 3) + theme(legend.position = "right")
+wrap_plots(plot3, plot4)
 
 # calculate mitochondrial genes per spot and plot them
 visium_breast[["percent.mt"]] <- PercentageFeatureSet(visium_breast, pattern = "^MT-")   
-plot4 <- VlnPlot(visium_breast, features = "percent.mt", pt.size = 0.1) + NoLegend()
-wrap_plots(plot4, plot2)
+plot5 <- VlnPlot(visium_breast, features = "percent.mt", pt.size = 0.1) + NoLegend()
+plot6 <- SpatialFeaturePlot(visium_breast, features = "percent.mt", pt.size.factor = 3) + theme(legend.position = "right")
+wrap_plots(plot5, plot6)
 
 # Remove Spots that fail QC ####
 
@@ -104,9 +106,11 @@ p1 + p2 + p3
 # Check clusters against ground truth ####
 
 Idents(visium_breast) <- "anno"
-p1 <- SpatialDimPlot(visium_breast, label = TRUE, label.size = 0, pt.size.factor = 3) + ggtitle("Ground Truth with img")
-p2 <- SpatialDimPlot(visium_breast, label = TRUE, image.alpha = 0, label.size = 4, pt.size.factor = 3) + ggtitle("Ground Truth without img")
+p1 <- SpatialDimPlot(visium_breast, label = TRUE, label.size = 0, pt.size.factor = 3) + ggtitle("10X 'Ground Truth'\n with img")
+p2 <- SpatialDimPlot(visium_breast, label = TRUE, image.alpha = 0, label.size = 4, pt.size.factor = 3) + ggtitle("10X 'Ground Truth'\n without img")
 p1+p2+p3
+
+ggsave("data/10X_anno.png",plot = p2, limitsize = F)
 
 # Import, prepare deconvolution reference ####
 
@@ -123,7 +127,7 @@ chromium_breast <- Read10X_h5(file.path(td, "filtered_feature_bc_matrix.h5"),
                               use.names = TRUE, unique.features = TRUE)
 chromium_metadata <- read.csv(file.path(td, "cell_metadata.csv"), row.names = 1)
 
-# Streamline demo by removing mixture spots,
+# Streamline demo by removing mixture droplets,
 # consolidating and abbreviating metadata columns
 chromium_ann <- chromium_metadata$Annotation
 chromium_ann[grepl("Hyb", chromium_ann)] <- NA
@@ -136,12 +140,6 @@ for (pattern_name in names(metadata_short)) {
 }
 chromium_ann <- gsub("\\s", "", chromium_ann)
 chromium_metadata$ShortName <- chromium_ann
-
-# Are all rownames and colnames equal?
-all(rownames(chromium_metadata) == colnames(chromium_breast))
-
-# Reorder metadata to exactly match cell barcodes
-#chromium_metadata <- chromium_metadata[colnames(chromium_breast),]
 
 chromium_breast <- CreateSeuratObject(counts = chromium_breast, meta.data = chromium_metadata)
 chromium_breast <- UpdateSeuratObject(chromium_breast)
@@ -177,13 +175,21 @@ cell.types.of.interest <- c("B", "DCIS1", "DCIS2", "T", "dendritic", "endo", "ma
 
 SpatialFeaturePlot(visium_breast, features = cell.types.of.interest, alpha = c(0.1, 1), pt.size.factor = 3)
 
-SpatialFeaturePlot(visium_breast, 
-                   features = cell.types.of.interest, 
-                   image.alpha = 0, 
-                   pt.size.factor = 3.5) & 
-  scale_fill_gradientn(colors = pals::jet(), 
-                       limits = c(0, 1), 
-                       oob = scales::squish) 
+(pDeconv <- SpatialFeaturePlot(visium_breast, 
+                               features = cell.types.of.interest, 
+                               image.alpha = 0, 
+                               pt.size.factor = 3.5) & 
+    scale_fill_gradientn(colors = pals::jet(), 
+                         #limits = c(0, 1), 
+                         oob = scales::squish) &
+    guides(fill = guide_colourbar(barwidth = unit(0.5, "lines"), barheight = unit(4, "lines"))) &
+    theme(text = element_text(size = 8),
+          legend.position = "right")    
+)
+
+ggsave("data/seurat_FindTransferAnchors_img.png",
+       plot = pDeconv,
+       width = 6, height = 3.2, dpi = 300, bg = "transparent")   
 
 # Calculate match rate for TME elements ####
 
@@ -196,8 +202,8 @@ visium_breast$predicted_id <- rownames(visium_breast[["predictions"]])[
 clear_mapping <- c(
   "DCIS #1" = "DCIS1",
   "DCIS #2" = "DCIS2",
-  "invasive" = "tumor",
-  "stromal" = "stromal"
+  "stromal" = "stromal",
+  "invasive" = "tumor"
 )
 
 # Subset to spots with clear ground truth
@@ -285,6 +291,7 @@ writePNG(nmi_registered$image, "data/aligned_seurat_to_osta.png")
 # References ####
 sink(paste0("references.txt"))
 print("HL Crowell*°, Y Dong*, I Billato, P Cai, M Emons, S Gunz, B Guo, M Li, A Mahmoud, A Manukyan, H Pagès, P Panwar, S Rao, CJ Sargeant, L Shepherd Kern, M Ramos, J Sun, M Totty, VJ Carey, Y Chen, L Collado-Torres, S Ghazanfar, KD Hansen, K Martinowich, KR Maynard, E Patrick, D Righelli, D Risso, S Tiberi, L Waldron, R Gottardo†°, MD Robinson†°, SC Hicks†°, LM Weber†°. Orchestrating spatial transcriptomics analysis with Bioconductor. bioRxiv (2025). DOI: 10.1101/2025.11.20.688607")
+print("(* co-first. † co-senior. ° correspondence.)")
 print("Janesick, A., Shelansky, R., Gottscho, A.D. et al. High resolution mapping of the tumor microenvironment using integrated single-cell, spatial and in situ analysis. Nat Commun 14, 8353 (2023). https://doi.org/10.1038/s41467-023-43458-x")
 citation("OSTA.data")
 print("")
